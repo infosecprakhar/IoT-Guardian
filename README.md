@@ -150,5 +150,3 @@ Contributions are welcome! Please follow standard coding practices and ensure yo
 
 ---
 
-This README should provide a good starting point for understanding, running, and developing the IoT Guardian application.
-# IoT-Guardian
