@@ -27,8 +27,6 @@ Before you begin, ensure you have the following installed:
 
 -   [Node.js](https://nodejs.org/) (version 20.x or later recommended)
 -   [npm](https://www.npmjs.com/) (usually comes with Node.js) or [yarn](https://yarnpkg.com/)
--   [Genkit CLI](https://firebase.google.com/docs/genkit/get-started#install-cli): `npm i -g genkit-cli`
--   A Google Cloud project with the Vertex AI API enabled for Genkit to function with Google AI models. You'll need an API key.
 
 ## Getting Started
 
@@ -145,21 +143,6 @@ Once both servers are running, open your browser and navigate to `http://localho
 
 These flows are invoked from the `AppContext.tsx` when a user interacts with features like "Generate Baseline" or "Detect Anomalies" on the device details page.
 
-## Deployment
-
-This project is configured for deployment with **Firebase App Hosting** using the `apphosting.yaml` file.
-
-To deploy:
-
-1.  Ensure you have the [Firebase CLI](https://firebase.google.com/docs/cli) installed and configured.
-2.  Set up a Firebase project and enable App Hosting.
-3.  Follow the Firebase App Hosting deployment instructions, which typically involve commands like:
-    ```bash
-    firebase init apphosting
-    firebase deploy
-    ```
-
-Ensure your `GOOGLE_API_KEY` is set as a secret in your Firebase App Hosting backend configuration.
 
 ## Contributing
 
@@ -168,3 +151,4 @@ Contributions are welcome! Please follow standard coding practices and ensure yo
 ---
 
 This README should provide a good starting point for understanding, running, and developing the IoT Guardian application.
+# IoT-Guardian
