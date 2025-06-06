@@ -1,3 +1,4 @@
+
 "use client";
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { useAppContext } from '@/contexts/AppContext';
 import type { Device, BehaviorBaseline as BaselineType, Anomaly as AnomalyType } from '@/lib/types';
 import type { DetectAnomaliesOutput } from '@/ai/flows/detect-anomalies';
 import { Badge } from '@/components/ui/badge';
+import { ClientFormattedDate } from '@/components/ClientFormattedDate';
 
 interface AnomalyDetectorProps {
   device: Device;
@@ -121,7 +123,7 @@ export function AnomalyDetector({ device, baseline }: AnomalyDetectorProps) {
                     <span className={`font-semibold ${anomaly.isAnomalous ? 'text-accent' : 'text-green-600'}`}>
                       {anomaly.isAnomalous ? 'Anomaly' : 'Normal'} - Confidence: {(anomaly.confidenceScore * 100).toFixed(0)}%
                     </span>
-                    <span className="text-xs text-muted-foreground">{new Date(anomaly.timestamp).toLocaleString()}</span>
+                    <ClientFormattedDate dateString={anomaly.timestamp} className="text-xs text-muted-foreground" />
                   </div>
                   <p className="text-sm text-muted-foreground truncate" title={anomaly.anomalyDescription}>{anomaly.anomalyDescription}</p>
                 </li>

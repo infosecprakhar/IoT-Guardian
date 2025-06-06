@@ -1,3 +1,4 @@
+
 "use client";
 import { useAppContext } from "@/contexts/AppContext";
 import { PageHeader } from "@/components/PageHeader";
@@ -7,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { ClientFormattedDate } from "@/components/ClientFormattedDate";
 
 export default function ReportsPage() {
   const { anomalies, devices } = useAppContext();
@@ -46,7 +48,7 @@ export default function ReportsPage() {
                             {device ? device.name : anomaly.deviceId}
                           </CardTitle>
                           <CardDescription className="text-xs">
-                            {new Date(anomaly.timestamp).toLocaleString()}
+                             <ClientFormattedDate dateString={anomaly.timestamp} />
                           </CardDescription>
                         </div>
                         <Badge variant={anomaly.isAnomalous ? "destructive" : "default"} className={!anomaly.isAnomalous ? "bg-green-600 hover:bg-green-700 text-white" : ""}>

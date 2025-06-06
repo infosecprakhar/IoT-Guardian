@@ -1,3 +1,4 @@
+
 "use client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { useAppContext } from "@/contexts/AppContext";
 import type { Device, Anomaly } from "@/lib/types";
 import { PageHeader } from "@/components/PageHeader";
 import Image from 'next/image';
+import { ClientFormattedDate } from "@/components/ClientFormattedDate";
 
 const DeviceStatusIcon = ({ type, status }: { type: string, status: Device['status'] }) => {
   let IconComponent;
@@ -112,9 +114,7 @@ export default function DashboardPage() {
                       <p className="text-sm text-muted-foreground truncate" title={anomaly.anomalyDescription}>
                         {anomaly.anomalyDescription}
                       </p>
-                      <p className="text-xs text-muted-foreground">
-                        {new Date(anomaly.timestamp).toLocaleString()}
-                      </p>
+                      <ClientFormattedDate dateString={anomaly.timestamp} className="text-xs text-muted-foreground" />
                     </div>
                     <Button variant="ghost" size="sm" asChild className="ml-auto">
                       <Link href={`/devices/${anomaly.deviceId}`}>View</Link>

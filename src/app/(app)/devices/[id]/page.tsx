@@ -1,4 +1,6 @@
+
 "use client";
+import type { ReactNode } from "react";
 import { useParams } from "next/navigation";
 import { useAppContext } from "@/contexts/AppContext";
 import { PageHeader } from "@/components/PageHeader";
@@ -9,6 +11,7 @@ import { Thermometer, Video, Router as RouterIcon, Fingerprint, Network, Tag, Ca
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { ClientFormattedDate } from "@/components/ClientFormattedDate";
 
 const DeviceStatusInfo = ({ status }: { status: string }) => {
   switch (status) {
@@ -23,7 +26,7 @@ const DeviceStatusInfo = ({ status }: { status: string }) => {
   }
 };
 
-const DeviceProperty = ({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: string | undefined | null }) => (
+const DeviceProperty = ({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: ReactNode | undefined | null }) => (
   <div className="flex items-start">
     <Icon className="h-5 w-5 text-muted-foreground mr-3 mt-1 flex-shrink-0" />
     <div>
@@ -89,7 +92,7 @@ export default function DeviceDetailPage() {
           <DeviceProperty icon={Fingerprint} label="Fingerprint" value={device.fingerprint} />
           <DeviceProperty icon={Network} label="IP Address" value={device.ipAddress} />
           <DeviceProperty icon={Network} label="MAC Address" value={device.macAddress} />
-          <DeviceProperty icon={CalendarDays} label="Last Seen" value={new Date(device.lastSeen).toLocaleString()} />
+          <DeviceProperty icon={CalendarDays} label="Last Seen" value={device.lastSeen ? <ClientFormattedDate dateString={device.lastSeen} /> : 'N/A'} />
         </CardContent>
       </Card>
 
