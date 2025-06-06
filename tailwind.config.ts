@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Inter', 'sans-serif'],
-        code: ['monospace'],
+        code: ['monospace', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -88,10 +88,15 @@ export default {
             height: '0',
           },
         },
+        'accent-pulse': {
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0px hsl(var(--accent)/0.7)' },
+          '50%': { opacity: '0.8', boxShadow: '0 0 0 4px hsl(var(--accent)/0.3)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'accent-pulse': 'accent-pulse 2s infinite',
       },
     },
   },
